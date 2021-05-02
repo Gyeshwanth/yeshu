@@ -21,3 +21,4 @@ public interface CarRepository extends JpaRepository<Car, Integer> {
 	
 	void delete(Car car);
 }
+ 
