@@ -24,6 +24,9 @@ public class CarController {
 	private static final Logger logger = LoggerFactory.getLogger(CarController.class);
 	
 	CarService carService;
+	public CarController() {
+		// TODO Auto-generated constructor stub
+	}
 
 	@Autowired
     public CarController(CarService carService) {
