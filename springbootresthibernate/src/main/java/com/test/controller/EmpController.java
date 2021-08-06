@@ -99,7 +99,7 @@ public class EmpController {
 		try {
 			empservice.delete(id);
 			return ResponseEntity.status(HttpStatus.OK).build();
-		}
+	}
 		catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}

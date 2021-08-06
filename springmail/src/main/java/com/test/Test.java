@@ -12,7 +12,7 @@ public class Test {
 	//ApplicationContext ac = new ClassPathXmlApplicationContext(Appconfig.class);
 			ApplicationContext act = new AnnotationConfigApplicationContext(Appconfig.class);
 			AppMailSender mail = act.getBean("appMailSender", AppMailSender.class);
-			FileSystemResource file = new FileSystemResource("C:/Users/G YESHWANTH/Pictures/3.jpg");
+			FileSystemResource file = new FileSystemResource("C:/Users/G YESHWANTH/Pictures/millingmachine.jpg");
 			boolean flag = mail.sendEmail("ycr96183@gmail.com", "Hello", "Welcome To Spring Email", file);
 			if(flag) {
 			System.out.println("Done!!!");

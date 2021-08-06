@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"/>
+<head>
+<style type="text/css"></style>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="list" align="center">
+<h3>WELCOME TO PRODUCT DATA</h3>
+<table border="1">
+<tr align="center">
+<th>ID</th>
+<th>CODE</th>
+<th>NAME</th>
+<th>COST</th>
+<th>GST</th>
+<th>NOTE</th>
+<th colspan=2>OPERATIONS</th>
+</tr>
+<tr th:each="p:${lists}">
+
+<td th:text = "${p.id}"/> </td>
+<td th:text = "${p.code}"/> </td>
+<td th:text = "${p.name}"/> </td>
+<td th:text = "${p.cost}"/> </td>
+<td th:text = "${p.gst}"/> </td>
+<td th:text = "${p.note}"/> </td>
+<td>
+<a th:href="@{/admin/edit/{id}(id=${p.id})}" >Update</a>
+<a th:href="@{/admin/delete/{id}(id=${p.id})}">Delete</a>
+</td>
+</tr>
+</table>
+<br>
+<a  th:href="@{/admin/register}" >Add new Product</a>
+
+</div>
+</body>
+</html>

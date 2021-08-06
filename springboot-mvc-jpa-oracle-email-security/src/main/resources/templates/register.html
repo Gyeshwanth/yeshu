@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+<style type="text/css">
+body {
+	background: orange;
+}
+</style>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body >
+<div class ="form" align="center">
+<h3>WELCOME TO PRODUCT REGISTER</h3>
+<form action="#" th:action="@{/admin/adminsave}" method="POST" th:object="${product}" enctype="multipart/form-data">
+Email :<input th:field="*{email}" /><br><br>
+CODE : <input  th:field="*{code}"/><br><br>
+Product : <input th:field="*{name}"/><br><br>
+COST : <input  th:field="*{cost}"/><br><br>
+GST :<select  th:field="*{gst}" style='width:152px'>
+<option value="5">5%-SLAB</option>
+<option value="12">12%-SLAB</option>
+<option value="18">18%-SLAB</option>
+<option value="22">22%-SLAB</option>
+<option value="30">30%-SLAB</option>
+</select><br><br> 
+
+NOTE : <textarea  th:field="*{note}" rows="5" ></textarea> <br><br>
+DOCUM: <input type="file" name="fileOb" /><br><br> 
+<input type="submit" value="CREATE PRODUCT"/>
+</form>
+
+
+</div>
+</body>
+</html>
