@@ -39,7 +39,7 @@ public class MyConfig  extends WebSecurityConfigurerAdapter{
 		DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
 		authenticationProvider.setUserDetailsService(getDetailsService());
 	     authenticationProvider.setPasswordEncoder(passwordEncoder()); 
-	     
+	  
 	     return authenticationProvider;
 	}
 
@@ -47,15 +47,15 @@ public class MyConfig  extends WebSecurityConfigurerAdapter{
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
 		auth.authenticationProvider(authenticationProvider());
-		
+		System.out.println(auth);
 		
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN")
+		http.authorizeRequests().antMatchers("/admin/**").hasAnyRole("ADMIN","EMP")
 		.antMatchers("/users/**").hasRole("USER")
-		.antMatchers("/**").permitAll().and().formLogin().defaultSuccessUrl("/admin/all") 
+		.antMatchers("/**").permitAll().and().formLogin().defaultSuccessUrl("/admin/all").and().exceptionHandling().accessDeniedPage("/user/403") 
 		.and().csrf().disable();
 		
 	}

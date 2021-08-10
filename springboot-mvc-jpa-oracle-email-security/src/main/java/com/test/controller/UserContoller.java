@@ -42,9 +42,16 @@ public class UserContoller {
 	
 	
 	@RequestMapping(value="/usersave" ,method = RequestMethod.POST)
-	public String save(@ModelAttribute User user) {
+	public String save(@ModelAttribute User user,@ModelAttribute Role  role) {
+
+//		List<Role>roles = new ArrayList<Role>();
+//		user.getRoles().add(role);
 		
-	user.setRole("ROLE_ADMIN");
+		//above same
+		user.addRole(role);
+	
+		
+	//user.setRole("ROLE_ADMIN");
 	user.setPassword(passwordEncoder.encode(user.getPassword()));
 		
      res.save(user);
@@ -53,7 +60,11 @@ public class UserContoller {
 		return "signup";
 	}
 	
+@RequestMapping("/403")
+public String fail() {
 	
+	return "security";
+}
 	
 	
 }

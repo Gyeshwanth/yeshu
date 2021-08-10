@@ -28,23 +28,14 @@ public class User {
 	private String name;
     private String email;
     private String password;
-  private String role;
+
   
   
   @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
   @JoinTable(name = "users_role",joinColumns = @JoinColumn(name="u_id"),inverseJoinColumns = @JoinColumn(name="r_id"))
- 
+ List<Role>roles = new ArrayList<Role>();
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
 public int getId() {
 	return id;
 }
@@ -69,18 +60,31 @@ public String getPassword() {
 public void setPassword(String password) {
 	this.password = password;
 }
-public String getRole() {
-	return role;
+//public String getRole() {
+//	return role;
+//}
+//public void setRole(String role) {
+//	this.role = role;
+//}
+public List<Role> getRoles() {
+	return roles;
 }
-public void setRole(String role) {
-	this.role = role;
+public void setRoles(List<Role> roles) {
+	this.roles = roles;
 }
+public void addRole(Role role)  {
+	this.roles.add(role);
+}
+
+
 @Override
 public String toString() {
-	return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", role=" + role + "]";
+	return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", roles=" + roles
+			+ "]";
 }
-    
-   
+
+
+  
 
 
 }

@@ -21,6 +21,13 @@ public class Product {
 	private String note;
 	@Transient
 	private String email;
+	
+	
+	public Product() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 	public String getCode() {
 		return code;
 	}
@@ -61,6 +68,16 @@ public class Product {
 		return email;
 	}
 	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Product(int id, String code, String name, double cost, String gst, String note, String email) {
+		super();
+		this.id = id;
+		this.code = code;
+		this.name = name;
+		this.cost = cost;
+		this.gst = gst;
+		this.note = note;
 		this.email = email;
 	}
 	

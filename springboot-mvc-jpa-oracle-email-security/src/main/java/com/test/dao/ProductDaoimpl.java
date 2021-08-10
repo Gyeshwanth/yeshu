@@ -25,7 +25,7 @@ public class ProductDaoimpl implements ProductDao {
 	@Override
 	public void update( Product product) {
 		
-res.save(product);
+    res.save(product);
 		
 	}
 
